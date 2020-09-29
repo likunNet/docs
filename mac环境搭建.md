@@ -102,3 +102,16 @@ sudo php-fpm -D
 
 > sudo killall php-fpm
 ~> sudo lsof -i:9000
+
+
+mysql
+
+brew install mysql@5.7
+brew services start mysql@5.7
+sudo ln -s /usr/local/opt/mysql@5.7/bin/mysql /usr/bin
+ alias mysql=/usr/local/opt/mysql@5.7/bin/mysql
+ 修改密码
+ update mysql.user set authentication_string = password('123456') where user='root';
+ flush privileges;
+ 重启生效
+
