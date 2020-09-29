@@ -104,7 +104,7 @@ sudo php-fpm -D
 ~> sudo lsof -i:9000
 
 
-mysql
+# mysql
 
 brew install mysql@5.7
 brew services start mysql@5.7
@@ -115,3 +115,43 @@ sudo ln -s /usr/local/opt/mysql@5.7/bin/mysql /usr/bin
  flush privileges;
  重启生效
 
+# redis
+
+brew install redis
+二、常用命令
+
+1.启动redis服务
+
+brew services start redis
+2.关闭redis服务
+
+brew services stop redis
+3.重启redis服务
+
+brew services restart redis
+4.打开图形化界面
+
+redis-cli
+  redis-cli --raw  # 解决中文乱码
+
+5.开机启动redis命令
+
+ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+6.使用配置文件启动redis-server
+
+redis-server /usr/local/etc/redis.conf
+7.停止redis服务
+
+redis-cli shutdown
+8. redis配置文件位置
+
+/usr/local/etc/redis.conf
+9.卸载redis
+
+brew uninstall redis rm ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+10.允许远程访问
+
+vim /usr/local/etc/redis.conf
+注释bind，默认情况下 redis不允许远程访问，只允许本机访问。
+
+#bind 127.0.0.1
