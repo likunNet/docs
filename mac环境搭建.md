@@ -123,26 +123,34 @@ brew install redis
 1.启动redis服务
 
 brew services start redis
+
 2.关闭redis服务
 
 brew services stop redis
+
 3.重启redis服务
 
 brew services restart redis
+
 4.打开图形化界面
 
 redis-cli
+
   redis-cli --raw  # 解决中文乱码
 
 5.开机启动redis命令
 
+
 ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 6.使用配置文件启动redis-server
 
+
 redis-server /usr/local/etc/redis.conf
+
 7.停止redis服务
 
 redis-cli shutdown
+
 8. redis配置文件位置
 
 /usr/local/etc/redis.conf
