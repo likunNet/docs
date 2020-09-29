@@ -55,3 +55,50 @@ pecl install rdkafka-4.0.0.tgz
 # zookeeper
 brew install zookeeper
 pecl install zookeeper-0.6.4.tgz
+
+
+# nginx
+brew install nginx
+
+修改权限
+sudo chown root:wheel /usr/local/Cellar/nginx/1.15.2/bin/nginx
+
+sudo chmod u+s /usr/local/Cellar/nginx/1.15.2/bin/nginx
+
+sudo chown -R root:wheel /usr/local/etc/nginx/
+
+修改php-fpm配置
+sudo cp /private/etc/php-fpm.conf.default /private/etc/php-fpm.conf
+vim /private/etc/php-fpm.conf
+
+error_log = /usr/local/var/log/php-fpm.log
+修改配置文件端口号及 php配置
+ /usr/local/etc/nginx/nginx.conf
+ 
+ 
+ 
+ location ~ \.php$ {
+
+  root      html;
+
+  fastcgi_pass  127.0.0.1:9000;
+
+  fastcgi_index index.php;
+
+  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+  include    fastcgi_params;
+
+}
+
+nginx -t
+
+nginx -s reload
+
+brew services restart nginx
+
+
+sudo php-fpm -D
+
+> sudo killall php-fpm
+~> sudo lsof -i:9000
