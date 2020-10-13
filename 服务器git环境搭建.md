@@ -28,9 +28,13 @@ $ chmod 644 .ssh/authorized_keys
 然后把 Git 仓库的 owner 修改为 git
 
  mkdir -p /home/gitrepo
+ 
  chown git:git /home/gitrepo/
+ 
  cd /home/gitrepo
+ 
  git init --bare /home/gitrepo/gittest.git
+ 
  chown -R git:git gittest.git/
  
  
