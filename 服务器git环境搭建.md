@@ -59,9 +59,11 @@ $ chmod 644 .ssh/authorized_keys
  
  cd /home/gitrepo/gittest.git/hooks
 vi post-receive
+#!/bin/bash
 
 cd /home/git/gittest.git
 git --work-tree=/web/www/gittest checkout -f
+
 
 保存文件并修改权限  work-tree配置任意目录 
 chown git:git post-receive
@@ -72,7 +74,7 @@ chmod 744 post-receive
 chmod -R 775 /web/www/gittes
  
  7、客户端：连接git服务器
-
+git init
 git remote add origin git@ip:/data/git/gittest.git
 git add.
 git commit 
