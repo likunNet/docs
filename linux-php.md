@@ -45,3 +45,5 @@ location ~ \.php$ {
 yum install autoconf
 pecl install swoole
 
+php-fpm安装详解
+https://blog.csdn.net/aerchi/article/details/83858180
