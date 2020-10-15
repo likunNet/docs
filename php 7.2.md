@@ -32,12 +32,14 @@
 ② 修改user和group的用户为当前用户(也可以不改，默认会添加nobody这个用户和用户组)
 
 【启动PHP】
+systemctl restart|start|stop  php-fpm
 
   /etc/init.d/php-fpm start        #php-fpm启动命令
  
   /etc/init.d/php-fpm stop         #php-fpm停止命令
  
   /etc/init.d/php-fpm restart        #php-fpm重启命令
+  
  
   ps -ef | grep php 或者 ps -A | grep -i php  #查看是否已经成功启动PHP
 新建index.php，输出phpinfo；显示成功，说明php安装成功。
