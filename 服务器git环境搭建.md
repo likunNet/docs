@@ -75,10 +75,15 @@ chmod -R 775 /web/www/gittes
  
  7、客户端：连接git服务器
 git init
+
 git remote add origin git@ip:/data/git/gittest.git
+
 git add.
+
 git commit 
+
 git push -u origin master -f
+
  
  备注：服务端可以禁用git登陆
  禁用git用户的shell登陆
