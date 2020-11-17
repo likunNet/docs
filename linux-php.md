@@ -47,3 +47,10 @@ pecl install swoole
 
 php-fpm安装详解
 https://blog.csdn.net/aerchi/article/details/83858180
+
+
+scp -P22   -r -i ~/.ssh/dongjing-shanghai.pem root@kiri_pro01:/data/backup/back_from_japan_kiriwoodinc_bak ./
+
+ssh时指定密钥：
+
+ssh -p22 -i ~/.ssh/dongjing-shanghai.pem root@kiri_pro01
