@@ -3,7 +3,7 @@
 转载至以下博客
 https://www.pianshen.com/article/5025305418/
 https://blog.csdn.net/ffzhihua/article/details/88846642
-
+https://blog.csdn.net/xoofly/article/details/105558947
 环境
 系统：CentOS 7.5
 软件：php-fpm-exporter.linux.amd64
