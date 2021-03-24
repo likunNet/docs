@@ -47,3 +47,6 @@ logrotate -d /etc/logrotate.d/nginx
 注：下面的代码 nobody 是我的nginx.confi里面的用户组，你可以看看你的配置用户组叫什么名字，默认是nobody，当然也www-data的用户组，自己对比观察一下。
 
 create 0644 nobody root
+
+ip 统计
+awk '{print $1}'  /var/log/nginx/pet_api_bk0325.log |sort | uniq -c | sort -n -r |head -n 20
