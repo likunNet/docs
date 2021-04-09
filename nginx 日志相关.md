@@ -56,3 +56,32 @@ cat /var/log/nginx/pet_api.log |awk '{print$7}'|sort|uniq -c |sort -rn
  cat /var/log/nginx/pet_api.log |awk '{print$7}'|sort|uniq -c |sort -rn |head -10
  
  cat  /var/log/nginx/pet_api_error.log | awk '{a[$17]++} END {for(b in a) print b"\t"a[b]}' | sort -k2 -r | head -n 10
+ 
+ nginx访问量统计
+ 
+0.查询某个时间段的日志
+ 
+cat appapi.dayutang.cn.access.log |grep 'POST'|grep '2019:10' > 20191059.log
+ 
+1.根据访问IP统计UV
+ 
+awk '{print $1}' 20190959.log|sort | uniq -c |wc -l
+ 
+2.统计访问URL统计PV
+ 
+awk '{print $8}' 20190959.log|wc -l
+ 
+3.查询访问最频繁的URL
+ 
+awk '{print $8}' 20190959.log|sort | uniq -c |sort -n -k 1 -r|more
+ 
+4.查询访问最频繁的IP
+ 
+awk '{print $1}' 20190959.log|sort | uniq -c |sort -n -k 1 -r|more
+ 
+5.根据时间段统计查看日志
+ 
+cat 20190959.log| sed -n '/14\/Mar\/2015:21/,/14\/Mar\/2015:22/p'|more
+ 
+6.查询每秒请求
+awk '{print $4}' 20190959.log |cut -c 14-21|sort|uniq -c|sort -nr|head -n 100
