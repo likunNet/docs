@@ -50,3 +50,9 @@ create 0644 nobody root
 
 ip 统计
 awk '{print $1}'  /var/log/nginx/pet_api_bk0325.log |sort | uniq -c | sort -n -r |head -n 20
+ -- 接口访问统计
+cat /var/log/nginx/pet_api.log |awk '{print$7}'|sort|uniq -c |sort -rn
+
+ cat /var/log/nginx/pet_api.log |awk '{print$7}'|sort|uniq -c |sort -rn |head -10
+ 
+ cat  /var/log/nginx/pet_api_error.log | awk '{a[$17]++} END {for(b in a) print b"\t"a[b]}' | sort -k2 -r | head -n 10
