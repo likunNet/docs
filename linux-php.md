@@ -16,7 +16,9 @@ yum -y install libxml2 libxml2-devel openssl openssl-devel curl-devel libjpeg-de
 
 1、mysql安装 5.7
 rpm -ivh mysql57-community-release-el7-10.noarch.rpm
+
  yum -y install mysql57-community-release-el7-10.noarch.rpm
+ 
  sudo yum module disable mysql
  
  yum -y install mysql-community-server
