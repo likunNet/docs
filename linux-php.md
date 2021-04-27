@@ -12,7 +12,7 @@ yum -y install php72w-cli php72w-common php72w-devel php72w-mysql  php72w-fpm
 
 rpm -Uvh http://repo.mysql.com/mysql57-community-release-el7-7.noarch.rpm
 
-yum -y install libxml2 libxml2-devel openssl openssl-devel curl-devel libjpeg-devel  libpng-devel  freetype-devel bzip2-devel libmcrypt libmcrypt-devel postgresql-devel aspell-devel readline-devel libxslt-devel net-snmp-devel unixODBC-devel libicu-devel libc-client-devel libXpm-devel libvpx-devel enchant-devel openldap openldap-devel db4-devel gmp-devel sqlite-devel mysql-devel php72w-xml
+yum -y install libxml2 libxml2-devel openssl openssl-devel curl-devel libjpeg-devel  libpng-devel  freetype-devel bzip2-devel libmcrypt libmcrypt-devel postgresql-devel aspell-devel readline-devel libxslt-devel net-snmp-devel unixODBC-devel libicu-devel libc-client-devel libXpm-devel libvpx-devel enchant-devel openldap openldap-devel db4-devel gmp-devel sqlite-devel mysql-devel php72w-xml php72w-mbstring
 
 1、mysql安装 5.7
 rpm -ivh mysql57-community-release-el7-10.noarch.rpm
@@ -22,6 +22,8 @@ rpm -ivh mysql57-community-release-el7-10.noarch.rpm
  sudo yum module disable mysql
  
  yum -y install mysql-community-server
+ 
+ yum install -y supervisor
  
  或者
  rpm -Uvh http://repo.mysql.com/mysql57-community-release-el7-7.noarch.rpm
