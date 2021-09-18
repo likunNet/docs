@@ -1,0 +1,43 @@
+# docs
+杂项（服务器、数据库等相关安装配置文档）
+Centos7 安装部署最新版 Es 参考https://blog.csdn.net/qq_34789780/article/details/108692930
+1、 cd /opt
+2、wget https://www.elastic.co/cn/downloads/past-releases/elasticsearch-8-0-0-alpha1
+3、tar -zxvf elasticsearch-8-0-0-alpha1.tar.gz
+4、mv elasticsearch-8-0-0-alpha1.tar.gz /usr/local
+5、vi /etc/security/limits.conf
+# 配置进程 和线程数
+*  soft nproc 131072
+*  hard nproc 131072
+#配置 文件句柄数
+*  soft nofile 65536
+*  hard nofile 131072
+#配置 内存锁定交换
+*  soft memlock unlimited
+*  hard memlock unlimited
+
+6、vi /etc/sysctl.conf
+
+#禁用内存与磁盘交换
+vm.swappiness=1
+#设置虚拟机内存大小
+vm.max_map_count=262144
+
+7、sysctl -p
+
+
+vi /usr/local/elasticsearch-8-0-0-alpha1/config/elasticsearch.yml
+# 外网访问
+network.host: 0.0.0.0
+# 端口号 注意防火墙设置
+http.port: 9200
+cluster.initial_master_nodes: ["node-1", "node-2"]
+
+
+8、 useradd esuser   #添加用户
+chown -R esuser:esuser /usr/local/elasticsearch-8-0-0-alpha1/   #对该目录授权
+
+9、 启动 es
+su esuser
+-- 后台运行
+/usr/local/elasticsearch-8.0.0-alpha1/bin/elasticsearch -d
