@@ -41,3 +41,25 @@ chown -R esuser:esuser /usr/local/elasticsearch-8-0-0-alpha1/   #对该目录授
 su esuser
 -- 后台运行
 /usr/local/elasticsearch-8.0.0-alpha1/bin/elasticsearch -d
+
+
+安装 Kibana
+https://www.elastic.co/cn/downloads/past-releases/kibana-8-0-0-alpha1
+
+1、 cd /opt
+2、wget https://www.elastic.co/cn/downloads/past-releases/kibana-8-0-0-alpha1
+3、tar -zxvf kibana-8-0-0-alpha1.tar.gz
+4、mv kibana-8.0.0-alpha1 /usr/local
+
+5 vim /usr/local/kibana-8.0.0-alpha1/config/kibana.yml
+
+# vi /kibana/config/kibana.yml
+修改配置
+server.port: 5601 #这个不一定需要配置
+server.host: "192.168.124.41"#配置IP
+elasticsearch.hosts: ["http://192.168.124.41:9200"]#es的地址
+i18n.locale: "zh-CN" #默认是英文，这个是中文设置
+
+6、chown -R esuser:esuser /usr/local/kibana-8.0.0-alpha1/
+7、chown -R esuser:esuser /usr/local/kibana-8.0.0-alpha1/
+8、/usr/local/kibana-8.0.0-alpha1/bin/kibana
